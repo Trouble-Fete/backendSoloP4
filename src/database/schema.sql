@@ -27,7 +27,7 @@ CREATE TABLE rotations (
     FOREIGN KEY (to_region) REFERENCES regions(region_id)
 );
 
--- Insertion des données réelles pour les régions de Verdansk
+-- régions de Verdansk
 INSERT INTO regions (region_name, region_image) VALUES
   ('Airport', 'https://static2.gamerantimages.com/wordpress/wp-content/uploads/2020/12/call-of-duty-warzone-verdansk-airport.jpg'), 
   ('Stadium', 'https://www.ginx.tv/uploads/verdansk_stadium.jpg'), 
@@ -37,21 +37,20 @@ INSERT INTO regions (region_name, region_image) VALUES
   ('Hospital', 'https://radar1.pythonanywhere.com/media/images/verdansk.jpg'),
   ('TV Station', 'https://callofdutymaps.com/wp-content/uploads/warzonetvstation-1536x864.jpg'),
   ('Dam', 'https://static0.gamerantimages.com/wordpress/wp-content/uploads/2021/02/call-of-duty-gora-dam.jpg'),
-  ('Storage town', 'https://example.com/images/verdansk_garrison.jpg'),
-  ('Lumber', 'https://example.com/images/verdansk_garrison.jpg'),
-  ('Military Base', 'https://example.com/images/verdansk_garrison.jpg'),
+  ('Storage town', 'https://callofdutymaps.com/wp-content/uploads/verdansk848-1536x864.jpg'),
+  ('Lumber', 'https://lh5.googleusercontent.com/nNsisLgVQr4cpHFUgD_ZDepPlLjJnSovI4kBS1xOC34V34A627lsa3PSTt68r5k5gJZLDDcqDtMiBDAIWzFyXHBkV0YAlgjN7n4DB9gdPS4agIlA1EDL5hC5Gfzdo4TYu1BjkOCS'),
+  ('Military Base', 'https://lh3.googleusercontent.com/OO43bJhGH4F5Mh5ssuvaG05OTW1gy3KxhblilNpQRYbrJ-RNGG4dsgyDjJCSQGdAD6AZW8n8xK3cjwm8mVhI9-dmWDt7-WcLnFHtEUWOrFOSu4gDEDqkz6OeSqvh1pOClvvWlDSL'),
   ('Train Station', 'https://example.com/images/verdansk_garrison.jpg'),
   ('Boneyard', 'https://example.com/images/verdansk_garrison.jpg'),
-  ('SuperStore', 'https://example.com/images/verdansk_garrison.jpg'),
-  ('Prison', 'https://example.com/images/verdansk_garrison.jpg'),
-  ('Storage town', 'https://example.com/images/verdansk_garrison.jpg'),
+  ('SuperStore', 'https://chumley.barstoolsports.com/union/2022/08/14/EmFMB0hWoAI9aVs.196a0a0e.jpeg?canvas=4:3&bg-color=000000'),
+  ('Prison', 'https://www.dexerto.fr/cdn-cgi/image/width=3840,quality=75,format=auto/https://editors.dexerto.fr/wp-content/uploads/sites/2/2023/12/09/retour-verdansk-warzone-semble-se-preciser.jpg'),
   ('Promenade East', 'https://example.com/images/verdansk_garrison.jpg'),
   ('Promenade West', 'https://example.com/images/verdansk_garrison.jpg'),
   ('Hills', 'https://example.com/images/verdansk_garrison.jpg'),
   ('Park', 'https://example.com/images/verdansk_garrison.jpg'),
-  ('Farmland', 'https://example.com/images/verdansk_farm.jpg');
+  ('Farmland', 'https://callofdutymaps.com/wp-content/uploads/verdansk843-1536x864.jpg');
 
--- Insertion des données pour les armes de Warzone 1
+-- armes de Warzone
 INSERT INTO weapons (weapon_name, weapon_image, weapon_type) VALUES
   ('M4A1', 'https://example.com/images/m4a1.jpg', 'AR'),
   ('Kilo 141', 'https://example.com/images/kilo141.jpg', 'AR'),
@@ -67,13 +66,16 @@ INSERT INTO weapons (weapon_name, weapon_image, weapon_type) VALUES
   ('PKM', 'https://example.com/images/pkm.jpg', 'mitrailleuse'),
   ('JOKR', 'https://example.com/images/jokr.jpg', 'explosive');
 
--- Insertion d'exemples de rotations entre régions
+-- exemples de rotations entre régions
 -- (Les region_id font référence à l'ordre d'insertion ci-dessus : 1 = Airport, 2 = Stadium, 3 = Downtown, etc.)
 INSERT INTO rotations (from_region, to_region, difficulty) VALUES
   (1, 3, 3),  -- De l'Aéroport vers le Centre-ville
   (3, 2, 2),  -- Du Centre-ville vers le Stade
   (2, 4, 4),  -- Du Stade vers la Carrière
   (5, 6, 3),  -- Du Port vers l'Hôpital
-  (7, 8, 5),  -- De la Station TV vers le Barrage (rotation particulièrement difficile)
-  (4, 9, 4),  -- De la Carrière vers la Garnison
+  (7, 8, 5),  -- De la Station TV vers le Barrage (rotation très difficile)
+  (4, 9, 4),  -- De la Carrière vers la storage
   (9, 10, 2); -- De la Garnison vers la Ferme
+
+
+--possibilité d'ajouter, de mettre à jour et supprimer les rotations entre les zones par l'admin et les joueurs
