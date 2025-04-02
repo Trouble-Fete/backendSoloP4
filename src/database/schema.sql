@@ -52,20 +52,21 @@ INSERT INTO regions (region_name, region_image) VALUES
 
 -- armes de Warzone
 INSERT INTO weapons (weapon_name, weapon_image, weapon_type) VALUES
-  ('M4A1', 'https://example.com/images/m4a1.jpg', 'AR'),
-  ('Kilo 141', 'https://example.com/images/kilo141.jpg', 'AR'),
-  ('Grau 5.56', 'https://example.com/images/grau556.jpg', 'AR'),
-  ('MP5', 'https://example.com/images/mp5.jpg', 'smg'),
+  ('M4A1', 'https://images2.minutemediacdn.com/image/upload/c_fill,w_720,ar_16:9,f_auto,q_auto,g_auto/shape/cover/sport/dataimagejpegbase649j4RAERXhpZgAATU0AKgAAAAgADAEAA-8382e1b707a6c95d4f15a8671c73cdba.jpg', 'AR'),
+  ('Kilo 141', 'https://static0.gamerantimages.com/wordpress/wp-content/uploads/2020/08/call-of-duty-kilo-141.jpg', 'AR'),
+  ('Grau 5.56', 'https://komponentenpc.com/wp-content/uploads/2021/07/1626418727_Bestes-Grau-Loadout-fuer-Warzone-Season-4-Reloaded.JPG', 'AR'),
+  ('MP5', 'https://images2.minutemediacdn.com/image/upload/c_fill,w_720,ar_16:9,f_auto,q_auto,g_auto/shape/cover/sport/dataimagepngbase64iVBORw0KGgoAAAANSUhEUgAAB4AAAAQ4-a3c99e219fc16fd011af63670a7657d8.jpg', 'smg'),
   ('MAC-10', 'https://example.com/images/mac10.jpg', 'smg'),
-  ('HDR', 'https://example.com/images/hdr.jpg', 'sniper'),
-  ('AX-50', 'https://example.com/images/ax50.jpg', 'sniper'),
-  ('725', 'https://example.com/images/725.jpg', 'fusil tatic'),
-  ('1911', 'https://example.com/images/1911.jpg', 'pistolet'),
-  ('M19', 'https://example.com/images/m19.jpg', 'pistolet'),
-  ('Couteau de combat', 'https://example.com/images/knife.jpg', 'corps à corps'),
-  ('PKM', 'https://example.com/images/pkm.jpg', 'mitrailleuse'),
-  ('kAR 98', 'https://example.com/images/pkm.jpg', 'fusil tactique'),
-  ('JOKR', 'https://example.com/images/jokr.jpg', 'explosive');
+  ('HDR', 'https://www.pcgamesn.com/wp-content/sites/pcgamesn/2021/03/call-of-duty-warzone-best-hdr-warzone-setup-11.jpg', 'sniper'),
+  ('AX-50', 'https://staticg.sportskeeda.com/editor/2022/05/5aff5-16535274158714-1920.jpg', 'sniper'),
+  ('725', 'https://staticg.sportskeeda.com/editor/2020/10/cad6b-16020157370149-800.jpg', 'fusil tatic'),
+  ('1911', 'https://cdn1.epicgames.com/ue/product/Featured/CC1911_featured-894x488-3c7490814537486ae2d3c3a7f2f0c52c.png', 'pistolet'),
+  ('M19', 'https://cdna.artstation.com/p/assets/images/images/027/178/706/4k/benjamin-turner-m19-v3-01.jpg?1590796579', 'pistolet'),
+  ('Couteau de combat', 'https://cdnb.artstation.com/p/assets/covers/images/033/643/093/large/akhil-james-jose-akhil-james-jose-cb8.jpg?1610175021', 'corps à corps'),
+  ('BRUEN MK9', 'https://static1-es.millenium.gg/articles/0/24/69/0/@/114837-bruen-article_image_t-1.png', 'mitrailleuse'),
+  ('KAR 98', 'https://th.bing.com/th/id/OIP.tv0yhCpTge3Hlix4q7xeeQHaEK?rs=1&pid=ImgDetMain', 'fusil tactique'),
+  ('JOKR', 'https://th.bing.com/th/id/OIP.s_C1NU7EayPW5vh3wJ_lcwHaEK?rs=1&pid=ImgDetMain', 'explosive');
+  --posibilité d'ajouter des armes avec image
 
 -- exemples de rotations entre régions
 -- (Les region_id font référence à l'ordre d'insertion ci-dessus : 1 = Airport, 2 = Stadium, 3 = Downtown, etc.)
