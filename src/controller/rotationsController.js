@@ -1,12 +1,39 @@
-const { findAllWithRegions } = require("../model/rotationsModel");
+const { add, findAllWithRegions } = require("../model/rotationsModel");
+
 const browse = async (req, res) => {
 	try {
 		const rotations = await findAllWithRegions();
 		res.status(200).json(rotations);
-	} catch (err) {
+	} catch (error) {
 		res.sendStatus(500);
 	}
 };
-// const read = (req, res) => {};
 
-module.exports = { browse };
+const addRotation = async (req, res) => {
+	const { from_region_name, to_region_name, difficulty } = req.body;
+
+	if (!from_region_name || !to_region_name || !difficulty) {
+		return res.status(400).json({ message: "Tous les champs sont requis" });
+	}
+
+	try {
+		const insertId = await add({
+			from_region_name,
+			to_region_name,
+			difficulty,
+		});
+		res
+			.status(201)
+			.json({
+				rotation_id: insertId,
+				from_region_name,
+				to_region_name,
+				difficulty,
+			});
+	} catch (error) {
+		console.error(error);
+		res.sendStatus(500);
+	}
+};
+
+module.exports = { browse, addRotation };
