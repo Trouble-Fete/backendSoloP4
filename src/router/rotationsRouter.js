@@ -7,6 +7,7 @@ const {
 	browse,
 	addRotation,
 	editRotation,
+	deleteRotation,
 } = require("../controller/rotationsController.js");
 
 //get http://localhost:4242/api/rotations/
@@ -17,5 +18,8 @@ router.post("/", addRotation);
 
 //PUT http://localhost:4242/api/rotations/
 router.put("/:id", editRotation);
+
+//DELETE http://localhost:4242/api/rotations/
+router.delete("/:id", deleteRotation);
 
 module.exports = router;

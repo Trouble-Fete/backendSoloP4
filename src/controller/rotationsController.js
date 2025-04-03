@@ -3,6 +3,7 @@ const {
 	findAllWithRegions,
 	edit,
 	findByIdWithRegions,
+	remove,
 } = require("../model/rotationsModel");
 
 const browse = async (req, res) => {
@@ -65,4 +66,18 @@ const addRotation = async (req, res) => {
 	}
 };
 
-module.exports = { browse, addRotation, editRotation };
+const deleteRotation = async (req, res) => {
+	const rotation_id = req.params.id;
+	try {
+		const affectedRows = await remove(rotation_id);
+		if (affectedRows === 0) {
+			return res.status(404).json({ message: "Rotation non trouvée" });
+		}
+		res.sendStatus(204);
+	} catch (error) {
+		console.error(error);
+		res.sendStatus(500);
+	}
+};
+
+module.exports = { browse, addRotation, editRotation, deleteRotation };

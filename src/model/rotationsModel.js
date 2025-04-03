@@ -1,6 +1,6 @@
 const db = require("./db");
 
-// Fonction add pour ajouter une rotation :
+// Fonction pour ajouter une rotation :
 const add = async (rotation) => {
 	try {
 		const { from_region_name, to_region_name, difficulty } = rotation;
@@ -33,7 +33,7 @@ const add = async (rotation) => {
 	}
 };
 
-// Fonction Browse pour récupérer toutes les rotations avec les noms des régions
+// Fonction pour récupérer toutes les rotations avec les noms des régions
 const findAllWithRegions = async () => {
 	try {
 		const [rows] = await db.query(
@@ -53,7 +53,7 @@ const findAllWithRegions = async () => {
 	}
 };
 
-// Fonction edit pour modifier une rotation existante :
+// Fonction pour modifier une rotation existante :
 const edit = async (rotation_id, rotation) => {
 	try {
 		const { from_region_name, to_region_name, difficulty } = rotation;
@@ -75,7 +75,7 @@ const edit = async (rotation_id, rotation) => {
 		const from_region = fromRegion.region_id;
 		const to_region = toRegion.region_id;
 
-		// Mise à jour de la rotation dans la base de données
+		// Update de la rotation dans la bdd
 		const [result] = await db.query(
 			"UPDATE rotations SET from_region = ?, to_region = ?, difficulty = ? WHERE rotation_id = ?",
 			[from_region, to_region, difficulty, rotation_id],
@@ -88,7 +88,7 @@ const edit = async (rotation_id, rotation) => {
 	}
 };
 
-// Fonction pour récupérer une rotation via son id, mais avec les noms
+// Fonction pour récupérer une rotation par son id avec les noms des régions
 const findByIdWithRegions = async (rotation_id) => {
 	try {
 		const [rows] = await db.query(
@@ -110,4 +110,18 @@ const findByIdWithRegions = async (rotation_id) => {
 	}
 };
 
-module.exports = { add, findAllWithRegions, edit, findByIdWithRegions };
+// Fonction Delete pour supprimer une rotation existante
+const remove = async (rotation_id) => {
+	try {
+		const [result] = await db.query(
+			"DELETE FROM rotations WHERE rotation_id = ?",
+			[rotation_id],
+		);
+		return result.affectedRows;
+	} catch (err) {
+		console.error(err);
+		throw err;
+	}
+};
+
+module.exports = { add, findAllWithRegions, edit, findByIdWithRegions, remove };
